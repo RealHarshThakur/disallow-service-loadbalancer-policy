@@ -1,6 +1,6 @@
 package policy
 
-violation[{"msg": msg}] {
-	input.review.object.spec.type == "LoadBalancer"
-	msg := "Service of type LoadBalancer are not allowed"
-}
+violation = [ {"msg": "Service of type LoadBalancer are not allowed"} |
+    input.review.object.spec.type == "LoadBalancer"
+]
+
